@@ -3,14 +3,17 @@ def range_it(start_num, end_num)
   (start_num..end_num).each do |num|
     result << num
   end
+
   result
 end
+
 
 def range(num1, num2)
   return [num2] if num1 == num2
 
-  [num1] + range(num1+1, num2)
+  [num1] + range(num1 + 1, num2)
 end
+
 
 def exponent1(base, number)
   return 1 if number == 0
@@ -25,10 +28,10 @@ def exponent2(base, number)
   if number.even?
     exponent2(base, number / 2) ** 2
   elsif number.odd?
-    base * (exponent2(base, (number - 1)/2) ** 2)
+    base * (exponent2(base, (number - 1) / 2) ** 2)
   end
-
 end
+
 
 def deep_dup(arr)
   results = []
@@ -44,14 +47,16 @@ def deep_dup(arr)
   results
 end
 
+
 def fib(n)
   return [] if n <= 0
   return [0] if n == 1
   return [0, 1] if n == 2
 
-  base = fib(n-1)
+  base = fib(n - 1)
   base << ( base[-1] + base[-2] )
 end
+
 
 def bsearch(array, target)
   return nil if array.empty?
@@ -68,6 +73,7 @@ def bsearch(array, target)
   end
 end
 
+
 def make_change(amt, coins = [25, 10, 5, 1])
   return [amt] if amt == coins.last
   return [] if amt == 0
@@ -76,22 +82,22 @@ def make_change(amt, coins = [25, 10, 5, 1])
     coins.shift
     make_change(amt, coins)
   else
-    [coins.first] + make_change(amt-coins.first, coins)
+    [coins.first] + make_change(amt - coins.first, coins)
   end
 end
+
 
 def merge_sort(array)
   return array if array.length == 1
 
   middle = (array.length / 2 == 1 ? 0 : array.length / 2)
-  merge(merge_sort(array[0..middle]), merge_sort(array[middle+1..-1]))
+  merge(merge_sort(array[0..middle]), merge_sort(array[middle + 1..-1]))
 end
 
 def merge(array1, array2)
   merged_array = []
 
   until array1.empty? || array2.empty?
-    p array1, array2
     merged_array << (array1.first > array2.first ? array2.shift : array1.shift)
   end
 
@@ -104,9 +110,9 @@ def merge(array1, array2)
   merged_array
 end
 
+
 def subsets(arr)
   return [[]] if arr == []
-
 
   subs = subsets(arr[0..-2])
   last = arr[-1]
@@ -118,9 +124,4 @@ def subsets(arr)
 
   result + subs
 end
-
-
-
-
-
 

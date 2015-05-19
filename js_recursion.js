@@ -1,14 +1,14 @@
 var range = function(start, stop) {
-  if(start === stop){
+  if (start === stop) {
     return stop;
   } else {
     var results = [start];
     results = results.concat(range(start + 1, stop));
   }
+
   return results;
 }
 
-// console.log(range(1, 5));
 
 var exponentiation = function(base, power) {
   if (power === 0) {
@@ -18,7 +18,6 @@ var exponentiation = function(base, power) {
   return base * exponentiation(base, power - 1);
 };
 
-// console.log(exponentiation(2, 4));
 
 var fibonacci = function(num) {
   switch (num) {
@@ -38,7 +37,6 @@ var fibonacci = function(num) {
   };
 };
 
-// console.log(fibonacci(7));
 
 var binarySearch = function(arr, target) {
   mid = Math.floor(arr.length / 2);
@@ -54,7 +52,6 @@ var binarySearch = function(arr, target) {
   }
 };
 
-//console.log(binarySearch([1, 2, 3, 4, 5, 6, 7, 8, 9], 0));
 
 var makeChange = function(value, coins) {
   if (coins === undefined && typeof(coins) !== "array") {
@@ -68,7 +65,6 @@ var makeChange = function(value, coins) {
   } else {
 
     for (var i in coins) {
-
       if (coins[i] <= value) {
         results.push([coins[i]].concat(makeChange(value - coins[i], coins)[0]));
       }
@@ -76,7 +72,6 @@ var makeChange = function(value, coins) {
   }
 };
 
-// console.log(makeChange(22));
 
 var merge = function(left, right) {
   var merged = [];
@@ -116,15 +111,4 @@ var subsets = function(array) {
 
   return newSubsets.concat(subSubsets);
 };
-
-
-
-
-
-
-
-
-
-
-
 
